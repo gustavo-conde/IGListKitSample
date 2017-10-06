@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Display-Bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="SF-UI-Display-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PostViewCell" customModule="OLX_Feed_Sample" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="337"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IBX-w0-seA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="207" id="GTQ-Gb-i2L"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y9I-wh-Ufk">
+                    <rect key="frame" x="358" y="224" width="0.0" height="0.0"/>
+                    <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2a-Zh-fRc">
+                    <rect key="frame" x="17" y="224" width="324" height="0.0"/>
+                    <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhC-U3-7mV">
+                    <rect key="frame" x="17" y="234" width="341" height="86"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NhC-U3-7mV" secondAttribute="trailing" constant="17" id="It9-hw-1mU"/>
+                <constraint firstItem="k2a-Zh-fRc" firstAttribute="top" secondItem="IBX-w0-seA" secondAttribute="bottom" constant="17" id="MWa-xA-8bJ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="NhC-U3-7mV" secondAttribute="bottom" constant="17" id="O0Z-NS-hks"/>
+                <constraint firstItem="IBX-w0-seA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Obc-Wi-qcb"/>
+                <constraint firstItem="NhC-U3-7mV" firstAttribute="top" secondItem="k2a-Zh-fRc" secondAttribute="bottom" constant="10" id="PaR-Dg-7ea"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="IBX-w0-seA" secondAttribute="trailing" id="PfL-1I-kzk"/>
+                <constraint firstItem="IBX-w0-seA" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="VVp-k1-W8t"/>
+                <constraint firstItem="k2a-Zh-fRc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="VjY-de-mPA"/>
+                <constraint firstItem="y9I-wh-Ufk" firstAttribute="bottom" secondItem="k2a-Zh-fRc" secondAttribute="bottom" id="YH4-Mo-i71"/>
+                <constraint firstItem="y9I-wh-Ufk" firstAttribute="leading" secondItem="k2a-Zh-fRc" secondAttribute="trailing" constant="17" id="cB9-Ku-IRk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="y9I-wh-Ufk" secondAttribute="trailing" constant="17" id="edm-5V-1nE"/>
+                <constraint firstItem="NhC-U3-7mV" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="17" id="gqJ-sE-AlI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="carImageView" destination="IBX-w0-seA" id="5U4-ve-8fo"/>
+                <outlet property="postCreationDateLabel" destination="y9I-wh-Ufk" id="Cg9-7H-fV8"/>
+                <outlet property="postDescriptionLabel" destination="NhC-U3-7mV" id="OhR-FK-NSs"/>
+                <outlet property="postTitleLabel" destination="k2a-Zh-fRc" id="eqV-Ci-2H7"/>
+            </connections>
+            <point key="canvasLocation" x="29.5" y="53.5"/>
+        </view>
+    </objects>
+</document>
