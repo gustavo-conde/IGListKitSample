@@ -12,7 +12,7 @@ protocol SearchSectionControllerDelegate: class {
     func searchSectionController(_ sectionController: SearchSectionController, didChangeText text: String)
 }
 
-final class SearchSectionController: ListSectionController, UISearchBarDelegate, ListScrollDelegate {
+final class SearchSectionController: ListSectionController {
     
     weak var delegate: SearchSectionControllerDelegate?
     
@@ -32,8 +32,10 @@ final class SearchSectionController: ListSectionController, UISearchBarDelegate,
         cell.searchBar.delegate = self
         return cell
     }
-    
-    // MARK: UISearchBarDelegate
+}
+
+// MARK: UISearchBarDelegate
+extension SearchSectionController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         delegate?.searchSectionController(self, didChangeText: searchText)
@@ -42,8 +44,10 @@ final class SearchSectionController: ListSectionController, UISearchBarDelegate,
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         delegate?.searchSectionController(self, didChangeText: searchBar.text!)
     }
-    
-    // MARK: ListScrollDelegate
+}
+
+// MARK: ListScrollDelegate
+extension SearchSectionController: ListScrollDelegate {
     
     func listAdapter(_ listAdapter: ListAdapter, didScroll sectionController: ListSectionController) {
         if let searchBar = (collectionContext?.cellForItem(at: 0, sectionController: self) as? SearchCell)?.searchBar {
@@ -52,6 +56,7 @@ final class SearchSectionController: ListSectionController, UISearchBarDelegate,
     }
     
     func listAdapter(_ listAdapter: ListAdapter, willBeginDragging sectionController: ListSectionController) {}
+    
     func listAdapter(_ listAdapter: ListAdapter,
                      didEndDragging sectionController: ListSectionController,
                      willDecelerate decelerate: Bool) {}

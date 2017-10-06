@@ -23,15 +23,7 @@ final class PostViewCell: UICollectionViewCell {
         if let url = URL(string: post.carPicture) {
             carImageView.af_setImage(withURL: url)
         }
+        postCreationDateLabel.text = "\(post.creationDay)/\(post.creationMonth)/\(post.creationYear)"
     }
     
 }
-
-/*extension PostViewCell: ListBindable {
-    
-    func bindViewModel(_ viewModel: Any) {
-        guard let viewModel = viewModel as? String else { return }
-        postTitleLabel.text = viewModel
-    }
-    
-}*/

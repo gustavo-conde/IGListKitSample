@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		228B52D11F87C53A00DDD018 /* UIController+Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228B52D01F87C53A00DDD018 /* UIController+Functions.swift */; };
 		40CFEF476C318E3820D8B7B9 /* Pods_OLX_Feed_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D2057DAA221F5893AA4B3A /* Pods_OLX_Feed_Sample.framework */; };
 		BEA45BC01F86E2C800818A18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA45BBF1F86E2C800818A18 /* AppDelegate.swift */; };
 		BEA45BC21F86E2C800818A18 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEA45BC11F86E2C800818A18 /* SearchViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		228B52D01F87C53A00DDD018 /* UIController+Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIController+Functions.swift"; sourceTree = "<group>"; };
 		676A2754D9C86514E8775C03 /* Pods-OLX Feed Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLX Feed Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-OLX Feed Sample/Pods-OLX Feed Sample.release.xcconfig"; sourceTree = "<group>"; };
 		69D2057DAA221F5893AA4B3A /* Pods_OLX_Feed_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OLX_Feed_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CAFF6E5C58199FC21998306 /* Pods-OLX Feed Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OLX Feed Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OLX Feed Sample/Pods-OLX Feed Sample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +60,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2241C2E51F87B440000F1EAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BEA45BD71F86E7BF00818A18 /* SearchCell.swift */,
+				BEA45BD91F86E7CA00818A18 /* PostViewCell.swift */,
+				BEA45BDB1F86EA3200818A18 /* PostViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2241C2E61F87B484000F1EAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BEA45BDD1F86EFDC00818A18 /* Posts.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2241C2E71F87B496000F1EAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BEA45BEA1F87262B00818A18 /* UIColor+Functions.swift */,
+				228B52D01F87C53A00DDD018 /* UIController+Functions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AAEA32F5C48B5429E9C5E83F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,18 +116,16 @@
 		BEA45BBE1F86E2C800818A18 /* OLX Feed Sample */ = {
 			isa = PBXGroup;
 			children = (
-				BEA45BDF1F8718FB00818A18 /* Fonts */,
-				BEA45BBF1F86E2C800818A18 /* AppDelegate.swift */,
-				BEA45BC11F86E2C800818A18 /* SearchViewController.swift */,
-				BEA45BC81F86E2C800818A18 /* LaunchScreen.storyboard */,
 				BEA45BCB1F86E2C800818A18 /* Info.plist */,
+				BEA45BBF1F86E2C800818A18 /* AppDelegate.swift */,
+				BEA45BC81F86E2C800818A18 /* LaunchScreen.storyboard */,
+				2241C2E71F87B496000F1EAD /* Extensions */,
+				BEA45BDF1F8718FB00818A18 /* Fonts */,
+				2241C2E61F87B484000F1EAD /* Models */,
+				2241C2E51F87B440000F1EAD /* Views */,
+				BEA45BC11F86E2C800818A18 /* SearchViewController.swift */,
 				BEA45BD51F86E79000818A18 /* SearchSectionController.swift */,
-				BEA45BD71F86E7BF00818A18 /* SearchCell.swift */,
-				BEA45BD91F86E7CA00818A18 /* PostViewCell.swift */,
-				BEA45BDB1F86EA3200818A18 /* PostViewCell.xib */,
-				BEA45BDD1F86EFDC00818A18 /* Posts.swift */,
 				BEA45BE81F871AEC00818A18 /* CustomSearchBar.swift */,
-				BEA45BEA1F87262B00818A18 /* UIColor+Functions.swift */,
 			);
 			path = "OLX Feed Sample";
 			sourceTree = "<group>";
@@ -251,6 +278,7 @@
 			files = (
 				BEA45BC21F86E2C800818A18 /* SearchViewController.swift in Sources */,
 				BEA45BDE1F86EFDC00818A18 /* Posts.swift in Sources */,
+				228B52D11F87C53A00DDD018 /* UIController+Functions.swift in Sources */,
 				BEA45BD81F86E7BF00818A18 /* SearchCell.swift in Sources */,
 				BEA45BEB1F87262B00818A18 /* UIColor+Functions.swift in Sources */,
 				BEA45BC01F86E2C800818A18 /* AppDelegate.swift in Sources */,
@@ -386,10 +414,11 @@
 			baseConfigurationReference = 7CAFF6E5C58199FC21998306 /* Pods-OLX Feed Sample.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N2KB48H7NV;
+				DEVELOPMENT_TEAM = GVU4KY537L;
 				INFOPLIST_FILE = "OLX Feed Sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gustavo-Conde.OLX-Feed-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = OLXFeedSampl1.gustavo.conde.globant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -401,10 +430,11 @@
 			baseConfigurationReference = 676A2754D9C86514E8775C03 /* Pods-OLX Feed Sample.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N2KB48H7NV;
+				DEVELOPMENT_TEAM = GVU4KY537L;
 				INFOPLIST_FILE = "OLX Feed Sample/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gustavo-Conde.OLX-Feed-Sample";
+				PRODUCT_BUNDLE_IDENTIFIER = OLXFeedSampl1.gustavo.conde.globant;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

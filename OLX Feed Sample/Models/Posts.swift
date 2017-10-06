@@ -23,25 +23,36 @@ class Posts: Mappable {
     
 }
 
-class Post: Mappable, ListDiffable {
+class Post {
     
     var title = ""
     var description = ""
-    var creationDate = ""
+    var creationYear = 0
+    var creationMonth = 0
+    var creationDay = 0
     var carPicture = ""
     
     required init?(map: Map) {
         
     }
+}
+
+extension Post: Mappable {
     
     func mapping(map: Map) {
         title           <- map["title"]
         description     <- map["description"]
-        carPicture      <- map["fullImage"]
+        carPicture      <- map["mediumImage"]
+        creationYear    <- map["date.year"]
+        creationMonth   <- map["date.month"]
+        creationDay     <- map["date.day"]
     }
+}
+
+extension Post: ListDiffable {
     
     func diffIdentifier() -> NSObjectProtocol {
-        return (title + creationDate).hashValue as NSObjectProtocol
+        return (title + String(creationDay) + String(creationMonth)).hashValue as NSObjectProtocol
     }
     
     func isEqual(toDiffableObject object: ListDiffable?) -> Bool {

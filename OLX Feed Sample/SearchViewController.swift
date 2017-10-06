@@ -11,7 +11,7 @@ import IGListKit
 import Alamofire
 import AlamofireObjectMapper
 
-final class SearchViewController: UIViewController, ListAdapterDataSource, SearchSectionControllerDelegate {
+final class SearchViewController: UIViewController {
     
     lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
@@ -23,6 +23,7 @@ final class SearchViewController: UIViewController, ListAdapterDataSource, Searc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
@@ -41,8 +42,10 @@ final class SearchViewController: UIViewController, ListAdapterDataSource, Searc
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
     }
+}
     
-    // MARK: ListAdapterDataSource
+// MARK: ListAdapterDataSource
+extension SearchViewController: ListAdapterDataSource {
     
     func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
         guard filterString != "" else { return [searchToken] + posts as [ListDiffable] }
@@ -76,8 +79,10 @@ final class SearchViewController: UIViewController, ListAdapterDataSource, Searc
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
         return nil
     }
+}
     
-    // MARK: SearchSectionControllerDelegate
+// MARK: SearchSectionControllerDelegate
+extension SearchViewController: SearchSectionControllerDelegate {
     
     func searchSectionController(_ sectionController: SearchSectionController, didChangeText text: String) {
         filterString = text
