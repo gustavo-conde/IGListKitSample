@@ -10,37 +10,53 @@ import UIKit
 import IGListKit
 import Alamofire
 import AlamofireObjectMapper
+import SVProgressHUD
 
 final class SearchViewController: UIViewController {
     
     lazy var adapter: ListAdapter = {
         return ListAdapter(updater: ListAdapterUpdater(), viewController: self)
     }()
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    var posts = [Post]()
     var filterString = ""
+    var posts = [Post]()
+    var refresher: UIRefreshControl!
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     let searchToken: NSNumber = 42
+    let endpoint = "https://api-v2.olx.com/items?location=www.olx.com.ar&searchTerm=auto"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
+        
+        title = "OLX Search"
+        
         view.addSubview(collectionView)
         adapter.collectionView = collectionView
         adapter.dataSource = self
-
-        self.title = "OLX Search"
         
-        Alamofire.request("https://api-v2.olx.com/items?location=www.olx.com.ar&searchTerm=auto").responseObject() { (response: DataResponse<Posts>) in
-            if let posts = response.result.value {
-                self.posts = posts.posts
-                self.adapter.performUpdates(animated: true, completion: nil)
-            }
-        }
+        refresher = UIRefreshControl()
+        collectionView.alwaysBounceVertical = true
+        refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        collectionView.addSubview(refresher)
+
+        loadData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
+    }
+    
+    @objc func loadData() {
+        refresher.endRefreshing()
+        SVProgressHUD.show()
+        Alamofire.request(endpoint).responseObject() { (response: DataResponse<Posts>) in
+            SVProgressHUD.dismiss()
+            if let posts = response.result.value {
+                self.posts = posts.posts
+                self.adapter.performUpdates(animated: true, completion: nil)
+            }
+        }
     }
 }
     
